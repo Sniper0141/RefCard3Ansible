@@ -1,4 +1,7 @@
 #cloud-config
+package_update: true
+package_upgrade: false
+
 users:
   - default
   - name: said
@@ -7,5 +10,5 @@ users:
     ssh_authorized_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCwww4vBu++pwvuutEB628ASThvVuec3JLkgEDtBuoIyOo1vTwjv+zQAHZTTkoCiAIXJ3Y36uQyxj4ffkNM+wUuvRtYvBKXc5/Wn4ph+Xvng+qv0KjGaEjrxEbbdpaUWvsqLg5wm/B/ysoFSkm7WbN46jOLmeMyEFpVpZtnd1VmyI00vNtDWBgp4jHKBdUbK2ZHQo6XzsdF+P+ujKnxVDUh0fLMHgNGsHggDIcUcVRjS/9ONAI1PkrRUNCvMDrmEkhBl1LkVVnFbKpSCugXU12dNhdbymhG9w7eBP6bK/LKD24IHyJA6wyRV+eyyXmhOYBs0r+nOKjlWcqXf7mdgmKH9RPuAajalNO7Sw68Xxl0hB35hK1amjSyhp9Y/Edo0h8L4Cj3qwgKtVrBLFI0YjODWmq3u1FfbxdML4nBCVA3r7ACef2siiyBy66AGzrGUa/RKt51sCp4oi0udqXWQUnpIf/dId2lqX+CJ+RcUg6QbQl9agbqwjW/Bj6YKHJAUBM= saidsim@SaidComp
       
-tasks: 
-  - name: install nginx
+      
+
