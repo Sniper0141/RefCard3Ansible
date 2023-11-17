@@ -1,7 +1,7 @@
 [web]
-/*webserver*/ ansible_host=/*ip*/ ansible_user=/*user*/ 
-ansible_ssh_private_key_file=/*path*/
+web1 ansible_host=192.168.68.214 
+ansible_user=said
 
 [db]
-/*webserver*/ ansible_host=/*ip*/ ansible_user=/*user*/ 
-ansible_ssh_private_key_file=/*path*/
+db1 ansible_host=192.168.68.215 
+ansible_user=said 
