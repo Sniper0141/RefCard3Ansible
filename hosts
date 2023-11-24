@@ -1,7 +1,7 @@
 [web]
-web1 ansible_host=192.168.68.214 
+web1 ansible_host=192.168.69.43
 ansible_user=kyle
 
 [db]
-db1 ansible_host=192.168.68.215 
+db1 ansible_host=192.168.69.44 
 ansible_user=kyle 
