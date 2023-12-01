@@ -1,12 +1,22 @@
 # The RefCard 3 with Ansible
 
-This is a small school project.
+Dies ist ein Schul-Projekt.
 
-## How to open Visual Studio in WSL
+## Wie man Visual Studio in WSL öffnet
 
-1. Open WSL in command line
-2. Go to directory you want to open
-3. Enter "code ."
+1. WSL im command line öffnen
+2. Directory öffnen
+3. "code ." eingeben
+
+## Finde deinen public-key raus
+
+1. WSL Ubuntu öffnen
+1. Folgendes eingeben: `cat /home/"user"/.ssh/id_rsa.pub`
+
+## Cloud-config schreiben
+
+1. Neuen default user erstellen
+2. bei `ssh_authorized_keys` den public-key einfügen
 
 ##  Erstellen Sie 2 MaaS Instanzen mit Ihrem Schlüsselpaar. Wählen Sie "druettimann" als Lehrer
 1. Im Browser https://maas.bbw-it.ch/index.php eingeben und sich einloggen.
