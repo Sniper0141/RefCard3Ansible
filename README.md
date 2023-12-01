@@ -25,3 +25,10 @@ Dies ist ein Schul-Projekt.
 4. Im Feld **Software** beim Input feld Initial Script: **Cloud config** rein Kopieren aus dem Dokument **cloud-config.yml**
 5. Dann erstellen.
 6. Dies Zwei mal machen da man 1 Instanz für die Webapp braucht und eine Instanz für die DB
+
+## Ansible in WSL installieren
+
+1. Öffne WSL
+2. Mit `sudo apt update` WSL updaten
+3. Mit `sudo apt install ansible` ansible lokal installieren
+
