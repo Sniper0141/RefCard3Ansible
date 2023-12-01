@@ -1,39 +1,39 @@
 ---
-- name: Inbetriebnahme auf eigenem Computer
-  hosts: localhost
+- name: Webserver
+  hosts: web
   gather_facts: false
+  become: true
 
   tasks:
     - name: Projekt herunterladen
       git:
         repo: https://gitlab.com/bbwrl/m346-ref-card-03.git
-        dest: ~/RefCard3Ansible
-      become: true
+        dest: RefCard3Ansible
 
-    - name: Projekt bauen und starten
-      command: "docker compose up"
-      args:
-        chdir: ~/RefCard3Ansible
-      become: true
+    - name: Installieren von Java
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Installieren von Maven
+      apt:
+        name: maven
+        state: present
 
     - name: Builden des Projektes mit Maven
       command: "mvn package"
       args:
-        chdir: ~/RefCard3Ansible
-      become: true
+        chdir: RefCard3Ansible
 
     - name: Setzen der Umgebungsvariablen
       lineinfile:
-        path: ~/.bashrc
+        path: .bashrc
         line: "export DB_USERNAME=jokedbuser DB_PASSWORD=123456 DB_URL=jdbc:postgresql://localhost:5432/yourdb"
-      become: true
 
     - name: Neuladen der Bash-Umgebung
-      command: ". ~/.bashrc"
-      become: true
+      shell: ". .bashrc"
 
     - name: Starten der App
-      command: "java -DDB_USERNAME=jokedbuser -DDB_PASSWORD=123456 -jar target/architecture-refcard-03-0.0.1-SNAPSHOT.jar"
+      command: "DDB_USERNAME=jokedbuser -DDB_PASSWORD=123456 -jar target/architecture-refcard-03-0.0.1-SNAPSHOT.jar"
       args:
-        chdir: ~/RefCard3Ansible
-      become: true
+        chdir: RefCard3Ansible
