@@ -1,13 +1,18 @@
 # The RefCard 3 with Ansible
 
-Dies ist ein Schul-Projekt.
+Das hier ist ein Schul-Projekt. 
 
-## Wie man Visual Studio in WSL öffnet
+Diese Dokumentation führt Sie durch den Prozess der Inbetriebnahme des Projekts "RefCard3Ansible" auf Ihrem eigenen Computer mithilfe von Ansible. Bitte folgen Sie den untenstehenden Schritten.
 
-1. WSL im command line öffnen
-2. Directory öffnen
-3. "code ." eingeben
-
+## Voraussetzungen
+ 
+Stellen Sie sicher, dass die folgenden Softwarekomponenten auf Ihrem Computer installiert sind:
+ 
+- [Git](https://git-scm.com/)
+- [Docker](https://www.docker.com/)
+- [Maven](https://maven.apache.org/)
+- [Java](https://www.java.com/)
+ 
 ## Finde deinen public-key raus
 
 1. WSL Ubuntu öffnen
@@ -31,4 +36,3 @@ Dies ist ein Schul-Projekt.
 1. Öffne WSL
 2. Mit `sudo apt update` WSL updaten
 3. Mit `sudo apt install ansible` ansible lokal installieren
-
