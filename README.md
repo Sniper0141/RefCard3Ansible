@@ -36,3 +36,9 @@ Stellen Sie sicher, dass die folgenden Softwarekomponenten auf Ihrem Computer in
 1. Öffne WSL
 2. Mit `sudo apt update` WSL updaten
 3. Mit `sudo apt install ansible` ansible lokal installieren
+
+## Ansible playbook
+
+1. Mit ChatGPT generieren
+2. `ansible-playbook playbook.yml` in WSL eingeben
+
