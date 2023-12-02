@@ -31,9 +31,43 @@
         line: "export DB_USERNAME=jokedbuser DB_PASSWORD=123456 DB_URL=jdbc:postgresql://localhost:5432/yourdb"
 
     - name: Neuladen der Bash-Umgebung
-      shell: ". .bashrc"
+      shell: ". ~/.bashrc"
+
+- name: Datenbank
+  hosts: db
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Projekt herunterladen
+      git:
+        repo: https://gitlab.com/bbwrl/m346-ref-card-03.git
+        dest: RefCard3Ansible
+
+    - name: Installieren von Docker
+      apt:
+        name: docker.io
+        state: present
+        
+    - name: Docker Compose for Database
+      command: "docker-compose up -d"
+      args:
+        chdir: RefCard3Ansible
+  
+
+- name: Webserver (Wait for Database)
+  hosts: web
+  gather_facts: false
+
+  tasks:
+    - name: Wait for Database to Start
+      wait_for:
+        host: db
+        port: 5432
+        state: started
+      become: true
 
     - name: Starten der App
-      command: "DDB_USERNAME=jokedbuser -DDB_PASSWORD=123456 -jar target/architecture-refcard-03-0.0.1-SNAPSHOT.jar"
+      command: "export DB_USERNAME=jokedbuser && export DB_PASSWORD=123456 && java -jar target/architecture-refcard-03-0.0.1-SNAPSHOT.jar"
       args:
         chdir: RefCard3Ansible

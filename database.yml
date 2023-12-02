@@ -1,0 +1,21 @@
+- name: Datenbank
+  hosts: db
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Projekt herunterladen
+      git:
+        repo: https://gitlab.com/bbwrl/m346-ref-card-03.git
+        dest: RefCard3Ansible
+
+    - name: Installieren von Docker
+      apt:
+        name: docker.io
+        state: present
+        
+    - name: Docker Compose for Database
+      command: "docker-compose up -d"
+      args:
+        chdir: RefCard3Ansible
+  
