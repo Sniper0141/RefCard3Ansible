@@ -31,6 +31,24 @@ Stellen Sie sicher, dass die folgenden Softwarekomponenten auf Ihrem Computer in
 5. Dann erstellen.
 6. Dies Zwei mal machen da man 1 Instanz für die Webapp braucht und eine Instanz für die DB
 
+## Hosts
+1. Zuerst muss man ein .txt file erstellen für die Hosts
+2. Die zwei IP Adressen von den VM's muss man kopieren und in diesem Textfile richtig einsetzten
+3. Dann muss man noch den User festlegen dies sieht dann in etwa so aus.
+4. `[web] web1 ansible_host=192.168.66.27 ansible_user=kyle`
+5. `[db] db1 ansible_host=192.168.66.28 ansible_user=kyle`
+
+## Kontrollieren ob die Hosts verbunden sind
+1. Auf wireguard gehen und den Tunnel zum MAAS aktivieren.
+2. Ins WSL Terminal gehen und `ansible -m ping all` eingeben
+3. Es sollte in etwa so aussehen: `db1 | SUCCESS => {
+       "changed": false,
+    "ping": "pong"
+}
+web1 | SUCCESS => {
+      "changed": false,
+    "ping": "pong"`
+4. Im WSL Terminal kann man auch `ansible-inventory --graph` eingeben und dann sieht man alle Hosts.
 ## Ansible in WSL installieren
 
 1. Öffne WSL
@@ -39,6 +57,5 @@ Stellen Sie sicher, dass die folgenden Softwarekomponenten auf Ihrem Computer in
 
 ## Ansible playbook
 
-1. Mit ChatGPT generieren
 2. `ansible-playbook playbook.yml` in WSL eingeben
 
