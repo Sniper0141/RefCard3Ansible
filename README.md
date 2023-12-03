@@ -74,6 +74,10 @@ Wir haben es nicht hinbekommen die Applikation zum Laufen zu bringen.
 Um das Playbook auszufühen muss man im WSL Terminal `ansible-playbook playbook.yml` eingeben wenn man nur Kontrollieren will und das Playbook nicht ausführen will muss man `ansible-playbook playbook.yml --check` eingeben.
 
 ## Datanbank
-
+Die Datenbank haben wir leider nicht zum laufen gebracht. Wir haben im databse.yml den ablauf von der Datenbank.
+1. Host auswählen
+2. Docker installieren
+3. docker-compose ausführen
+4. Datenbank start
 
 
